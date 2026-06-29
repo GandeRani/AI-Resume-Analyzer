@@ -1,78 +1,63 @@
-# 🚀 AI Resume Analyzer (Flask + ATS System)
+# 🤖 AI Resume Analyzer
 
-An AI-powered Resume Analyzer web application built using Flask that extracts text from PDF resumes, detects skills, calculates ATS score, and predicts job roles.
+An AI-powered Resume Analyzer built using **Python** and **Flask** that analyzes resumes, calculates an ATS (Applicant Tracking System) score, extracts technical skills, recommends suitable job roles, and compares resumes with a Job Description (JD).
 
 ---
 
 ## 📌 Features
 
-- 📄 Upload PDF Resume  
-- 🤖 Extract text automatically from resume  
-- 🧠 Skill detection using keyword matching  
-- 📊 ATS Resume Score (0–100)  
-- 🎯 Job Role Prediction:
-  - VLSI / Digital Design Engineer  
-  - AI / Data Science Engineer  
-  - Embedded Systems Engineer  
-  - General Profile  
-
-- 📈 Score Breakdown:
-  - Skills (40)
-  - Projects (25)
-  - Education (15)
-  - Keywords (20)
-
-- 🎨 Clean Bootstrap UI  
-- ⚡ Flask Backend  
+- 📄 Upload Resume (PDF)
+- 📑 Extract Resume Text
+- 💻 Technical Skill Extraction
+- 📊 ATS Score Calculation (0–100)
+- 🎯 Suggested Job Role Detection
+- 🤝 Job Description Matching
+- ✅ Matched Skills Detection
+- ❌ Missing Skills Detection
+- 📄 Resume Preview
+- 🌐 Responsive Web Interface
 
 ---
 
-## 🛠 Tech Stack
+## 🛠 Technologies Used
 
-- Python 🐍  
-- Flask 🌐  
-- PyPDF2 📄  
-- HTML5  
-- CSS3  
-- Bootstrap 5  
-- Regex (Text Processing)  
+### Backend
+- Python
+- Flask
+- PyPDF2
+- Jinja2
 
----
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
 
-## 🧠 How It Works
-
-1. User uploads a PDF resume  
-2. Flask saves file securely  
-3. PyPDF2 extracts text  
-4. Text is cleaned and processed  
-5. Skills are detected using keywords  
-6. Resume is evaluated using scoring system  
-7. ATS score is generated  
-8. Job role is predicted  
-9. Result is displayed in UI  
+### Tools
+- Git
+- GitHub
+- VS Code
 
 ---
 
-## 📊 ATS Scoring System
+## 📂 Project Structure
 
-| Component | Marks |
-|----------|------|
-| Skills   | 40   |
-| Projects | 25   |
-| Education| 15   |
-| Keywords | 20   |
-
-**Total = 100**
-
----
-## 📁 Project Structure
-
-```bash
+```
 AI-Resume-Analyzer/
 │
 ├── app.py
-├── README.md
 ├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── images/
+│       └── screenshots/
+│           ├── home.png
+│           ├── upload.png
+│           ├── result.png
+│           └── job-match.png
 │
 ├── templates/
 │   ├── base.html
@@ -80,50 +65,201 @@ AI-Resume-Analyzer/
 │   ├── upload.html
 │   └── result.html
 │
-├── static/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── script.js
-│   └── images/
-│       ├── home.png
-│       ├── upload.png
-│       └── result.png
-│
 └── uploads/
 ```
 
 ---
 
+## 🚀 Installation
 
-## 🚀 How to Run
+### 1. Clone the Repository
 
-### 1. Install dependencies
+```bash
+git clone https://github.com/GandeRani/AI-Resume-Analyzer.git
+```
+
+### 2. Navigate to the Project Folder
+
+```bash
+cd AI-Resume-Analyzer
+```
+
+### 3. Create a Virtual Environment
+
+**Windows**
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 4. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Run Flask app
+---
+
+## ▶️ Run the Application
+
 ```bash
 python app.py
 ```
 
-### 3. Open in browser
+Open your browser and visit:
+
 ```
 http://127.0.0.1:5000
 ```
 
-## 🏠 Home Page
-![Home](./static/images/screenshots/home.png)
+---
 
-## 📄 Upload Page
-![Upload](./static/images/screenshots/upload.png)
+## 📖 How It Works
 
-## 📊 Result Page
-![Result](./static/images/screenshots/result.png)
+1. Upload a PDF resume.
+2. Resume text is extracted using **PyPDF2**.
+3. Technical skills are identified.
+4. ATS score is calculated.
+5. A suitable job role is recommended.
+6. (Optional) Paste a Job Description.
+7. Resume skills are compared with the Job Description.
+8. Matching skills, missing skills, and match percentage are displayed.
 
-## 👨‍💻 Author
+---
 
-- **Name:** Gande Rani  
-- **Project:** AI Resume Analyzer  
-- **Tech Stack:** Flask + AI Web Application  
+## 📊 ATS Score Breakdown
+
+| Category | Marks |
+|----------|------:|
+| Skills | 40 |
+| Projects | 20 |
+| Education | 10 |
+| Experience | 10 |
+| Certifications | 10 |
+| Resume Length | 10 |
+| **Total** | **100** |
+
+---
+
+## 🎯 Supported Domains
+
+The analyzer detects resumes related to:
+
+- 🌐 Web Development
+- 🤖 AI / Machine Learning
+- 📊 Data Science
+- ⚙️ VLSI / Digital Design
+- 🔌 Embedded Systems
+- ☁️ Cloud / DevOps
+- 💼 General Software Engineering
+
+---
+
+## 💡 Supported Skills
+
+The system detects skills including:
+
+- Python
+- Java
+- C
+- C++
+- C#
+- HTML
+- CSS
+- JavaScript
+- TypeScript
+- React
+- Node.js
+- Express.js
+- SQL
+- MySQL
+- PostgreSQL
+- MongoDB
+- Docker
+- Kubernetes
+- AWS
+- Azure
+- Git
+- GitHub
+- Linux
+- TensorFlow
+- PyTorch
+- NumPy
+- Pandas
+- Machine Learning
+- Deep Learning
+- AI
+- Verilog
+- SystemVerilog
+- FPGA
+- ASIC
+- VLSI
+- Embedded Systems
+- Arduino
+- Raspberry Pi
+- Flutter
+- Kotlin
+- Firebase
+- REST API
+- GraphQL
+- And many more...
+
+---
+
+## 📷 Screenshots
+
+### 🏠 Home Page
+
+![Home](static/images/screenshots/home.png)
+
+---
+
+### 📤 Resume Upload
+
+![Upload](static/images/screenshots/upload.png)
+
+---
+
+### 📈 Resume Analysis
+
+![Result](static/images/screenshots/result.png)
+
+---
+
+### 🎯 Job Description Matching
+
+![Job Match](static/images/screenshots/job-match.png)
+
+---
+
+## 🔮 Future Improvements
+
+- AI-powered Resume Suggestions
+- Resume Ranking
+- OCR Support for Scanned PDFs
+- Export Report as PDF
+- Charts & Analytics Dashboard
+- Resume Comparison
+- NLP-based Resume Parsing
+- AI Chatbot for Resume Improvement
+
+---
+
+## 👩‍💻 Author
+
+**Gande Rani**
+
+📧 GitHub Profile: https://github.com/GandeRani
+
+📂 Project Repository: https://github.com/GandeRani/AI-Resume-Analyzer
+
+---
+
