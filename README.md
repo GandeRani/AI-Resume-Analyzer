@@ -1,6 +1,9 @@
 # 🤖 AI Resume Analyzer
 
 An AI-powered Resume Analyzer built using **Python** and **Flask** that analyzes resumes, calculates an ATS (Applicant Tracking System) score, extracts technical skills, recommends suitable job roles, and compares resumes with a Job Description (JD).
+## 🌐 Live Demo
+
+**Live Application:** https://ai-resume-analyzer-pays.onrender.com
 
 ---
 
