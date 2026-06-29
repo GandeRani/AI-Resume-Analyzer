@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Result - AI Resume Analyzer{% endblock %}
+
+{% block content %}
+
+<div class="card p-4 shadow-sm">
+
+    <!-- ================= HEADER ================= -->
+    <h2 class="text-center mb-3">🎉 AI Resume Analysis Result</h2>
+
+    <p><b>File:</b> {{ filename }}</p>
+
+    <!-- ================= ATS SCORE ================= -->
+    <div class="text-center my-4">
+
+        <h4>ATS Score</h4>
+        <h1 class="text-primary">{{ score }}/100</h1>
+
+        <!-- Chart Canvas -->
+        <div style="width:180px; height:180px; margin:auto;">
+            <canvas id="scoreChart"></canvas>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- ================= ROLE ================= -->
+    <h5>🎯 Suggested Role:</h5>
+    <span class="badge bg-success fs-6">{{ domain }}</span>
+
+    <hr>
+
+    <!-- ================= SKILLS ================= -->
+    <h5>🤖 Skills Detected</h5>
+
+    {% if skills %}
+        {% for skill in skills %}
+            <span class="badge bg-primary me-1 mb-1">{{ skill }}</span>
+        {% endfor %}
+    {% else %}
+        <p>No skills detected</p>
+    {% endif %}
+
+    
+<hr>
+
+<!-- ================= JOB DESCRIPTION MATCH ================= -->
+<h5>🎯 Job Description Match</h5>
+
+{% if has_jd %}
+
+<div class="mb-3">
+
+    <div class="progress" style="height:25px;">
+        <div class="progress-bar bg-success"
+             role="progressbar"
+             style="width: {{ match_percentage }}%;">
+            {{ match_percentage }}%
+        </div>
+    </div>
+
+</div>
+
+<h6 class="mt-3">✅ Matched Skills</h6>
+
+{% if matched_skills %}
+    {% for skill in matched_skills %}
+        <span class="badge bg-success me-1 mb-1">
+            {{ skill }}
+        </span>
+    {% endfor %}
+{% else %}
+    <p>No matching skills found.</p>
+{% endif %}
+
+<h6 class="mt-4">❌ Missing Skills</h6>
+
+{% if missing_skills %}
+    {% for skill in missing_skills %}
+        <span class="badge bg-danger me-1 mb-1">
+            {{ skill }}
+        </span>
+    {% endfor %}
+{% else %}
+    <p>No missing skills.</p>
+{% endif %}
+
+{% else %}
+
+<div class="alert alert-info">
+    No Job Description provided.
+</div>
+
+{% endif %}
+
+<hr>
+
+
+    <!-- ================= SCORE BREAKDOWN ================= -->
+    <h5>📊 Score Breakdown</h5>
+
+    <ul class="list-group">
+
+        <li class="list-group-item d-flex justify-content-between">
+            Skills
+            <span class="badge bg-primary">{{ skills_score }}</span>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">
+            Projects
+            <span class="badge bg-success">{{ project_score }}</span>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">
+            Education
+            <span class="badge bg-warning text-dark">{{ education_score }}</span>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">
+            Keywords
+            <span class="badge bg-danger">{{ keyword_score }}</span>
+        </li>
+
+    </ul>
+
+    <hr>
+
+    <!-- ================= RESUME PREVIEW ================= -->
+    <h5>📄 Resume Preview</h5>
+
+    <div class="p-3 bg-light rounded">
+        <pre style="white-space: pre-wrap; font-size: 14px;">
+{{ text }}
+        </pre>
+    </div>
+
+</div>
+
+<!-- ================= CHART SCRIPT ================= -->
+<script>
+const score = Number("{{ score }}");
+
+const ctx = document.getElementById('scoreChart');
+
+new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Score', 'Remaining'],
+        datasets: [{
+            data: [score, 100 - score],
+            backgroundColor: ['#4CAF50', '#E0E0E0'],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        cutout: '70%',
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    }
+});
+</script>
+
+{% endblock %}
